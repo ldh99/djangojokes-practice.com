@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # include urls path to the pages app
-    path('jokes', include(jokes.urls)),
+    path('jokes', include('jokes.urls')),
     path('', include('pages.urls')),
 ]
