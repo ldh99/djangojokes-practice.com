@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from .models import Joke
 
@@ -14,3 +14,12 @@ class JokeListView(ListView):
 class JokeDetailView(DetailView):
   model = Joke
 
+# Create View to display the joke with data column in html form fields
+class JokeCreateView(CreateView):
+  model = Joke
+  fields = ['question', 'answer']
+
+# Update View to display the joke with data in form fields for update
+class JokeUpdateView(UpdateView):
+  model = Joke
+  fields = ['question', 'answer']

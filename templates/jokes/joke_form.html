@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+
+{% comment %}
+template to create/update (add/edit) the joke in html form 
+- extends _base.html for header, navigation menus and footer 
+- include form with a post method
+- {% csrf_token %} template tag - security to protect against cross site request forgery
+- {{ form }} - output the form fields and their labels
+{% endcomment %}
+
+{% block title %}Add/Update Joke{% endblock %}
+
+{% block main %}
+  <div class="card border-primary m-auto ms-3 p-3"
+    style="max-width: 30rem">
+    <form method="post">
+      {% csrf_token %}
+      <table class="table">
+        {{ form.as_table }}
+      </table>
+      <!-- {{ form }} replace plain form with table -->
+      <button class="btn btn-success float-end">Submit</button>
+    </form>
+  </div>
+{% endblock %}
